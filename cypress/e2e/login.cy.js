@@ -43,6 +43,13 @@ describe('Login formu testleri', () => {
         cy.get('[data-testid="sign-in-button"]').should('be.disabled');
     })
 
+    it('email ve password doğru formatta, terms checkbox işaretlenmiş buton enabled olur.', () => {
+        cy.get('input[type="email"]').type('emreece@wit.com.tr');
+        cy.get('input[type="password"]').type('1234');
+        cy.get('input[type="checkbox"]').check();
+        cy.get('[data-testid="sign-in-button"]').should('be.enabled');
+    })
+
 
 
 

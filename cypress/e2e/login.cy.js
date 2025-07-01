@@ -50,6 +50,12 @@ describe('Login formu testleri', () => {
         cy.get('[data-testid="sign-in-button"]').should('be.enabled');
     })
 
+    it('sadece password 4 karakterden kısa girildiğinde hata mesajı görünür ve buton disabled olur.', () => {
+        cy.get('input[type="password"]').type('123');
+        cy.get('div[data-testid="formfeedbackPassword"]').should('be.visible');
+        cy.get('div[data-testid="formfeedbackPassword"]').should('contain.text', 'Password must be at least 4 characters long');
+        cy.get('[data-testid="sign-in-button"]').should('be.disabled');
+    })
 
 
 
